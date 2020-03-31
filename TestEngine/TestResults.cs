@@ -5,13 +5,20 @@ namespace MyTestLib
 {
 	public class TestResults
 	{
-		// Answer on question
+		/// <summary>
+		/// Answer on question
+		/// </summary>
+		/// <param name="question">Question to answer</param>
+		/// <param name="answers">Answer given to question</param>
 		public void Answer(TestQuestion question, IList<TestAnswer> answers)
 		{
 			collectedAnswers.Add (new KeyValuePair<TestQuestion, IList<TestAnswer>> (question, answers));
 		}
 
-		// Remove answers on question
+		/// <summary>
+		/// Remove answers on question
+		/// </summary>
+		/// <param name="question">Question to forget a given answer</param>
 		public void ForgetAnswer(TestQuestion question)
 		{
 			foreach (var answer in collectedAnswers)
@@ -24,7 +31,11 @@ namespace MyTestLib
 			}
 		}
 
-		// Get collected answers on specific question
+		/// <summary>
+		/// Get collected answers on specific question
+		/// </summary>
+		/// <param name="question">Question to collect the answers for</param>
+		/// <returns></returns>
 		public IList<TestAnswer> Answered(TestQuestion question)
 		{
 			foreach (var answer in collectedAnswers)
@@ -37,7 +48,11 @@ namespace MyTestLib
 			return new List<TestAnswer>();
 		}
 
-		// Get score for a particular question
+		/// <summary>
+		/// Get score for a particular question
+		/// </summary>
+		/// <param name="question">Question to count the score</param>
+		/// <returns></returns>
 		public float QuestionScore(TestQuestion question)
 		{
 			float score = 0;
@@ -92,7 +107,9 @@ namespace MyTestLib
 			return score;
 		}
 
-		// User's score
+		/// <summary>
+		/// User's score
+		/// </summary>
 		public float Score
 		{
 			get
@@ -149,7 +166,9 @@ namespace MyTestLib
 			}
 		}
 
-		// Test state
+		/// <summary>
+		/// Test state
+		/// </summary>
 		public TestState TestState;
 
 		public TestResults(TestState ts)
