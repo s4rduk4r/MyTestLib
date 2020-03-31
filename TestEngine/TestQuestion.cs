@@ -14,7 +14,9 @@ namespace MyTestLib
 {
 	public class TestQuestion
 	{
-		// Question text
+		/// <summary>
+		/// Question text
+		/// </summary>
 		public string Text
 		{
 			get
@@ -23,7 +25,9 @@ namespace MyTestLib
 			}
 		}
 
-		// Question total value. Negative values are treated as zero
+		/// <summary>
+		/// Question total value. Negative values are treated as zero
+		/// </summary>
 		public float Value
 		{
 			get
@@ -43,7 +47,9 @@ namespace MyTestLib
 			}
 		}
 
-		// Wrong answer penalty
+		/// <summary>
+		/// Wrong answer penalty
+		/// </summary>
 		public float PunishValue
 		{
 			get
@@ -52,7 +58,9 @@ namespace MyTestLib
 			}
 		}
 
-		// Get correct answer value
+		/// <summary>
+		/// Get correct answer value
+		/// </summary>
 		public float CorrectValue
 		{
 			get
@@ -61,7 +69,9 @@ namespace MyTestLib
 			}
 		}
 
-		// Answers affiliated with the Question
+		/// <summary>
+		/// Answers affiliated with the Question
+		/// </summary>
 		public IList<TestAnswer> Answers
 		{
 			get
@@ -77,7 +87,9 @@ namespace MyTestLib
 			}
 		}
 
-		// Correct answers
+		/// <summary>
+		/// Correct answers
+		/// </summary>
 		public IList<TestAnswer> CorrectAnswers
 		{
 			get
@@ -94,7 +106,10 @@ namespace MyTestLib
 			}
 		}
 
-		// Shuffle answers so they don't repeat their order each time
+		/// <summary>
+		/// Shuffle answers so they don't repeat their order each time
+		/// </summary>
+		/// <param name="rng"></param>
 		public void Shuffle(Random rng)
 		{
 			var answersOld = answers;
