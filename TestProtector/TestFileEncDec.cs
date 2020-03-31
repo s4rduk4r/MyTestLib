@@ -16,7 +16,7 @@ namespace MyTestLib
 {
 	namespace Protector
 	{
-		public class TestFileEncDec
+		internal class TestFileEncDec
 		{
 			// File extensions of raw MyTest file
 			public static string MyTestRaw = ".mytest";

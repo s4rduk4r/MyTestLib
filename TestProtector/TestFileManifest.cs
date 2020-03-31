@@ -11,7 +11,7 @@ namespace MyTestLib
 {
 	namespace Protector
 	{
-		public class TestFileManifest
+		internal class TestFileManifest
 		{
 			public byte[] IV = null;
 			public byte[] Key = null;
