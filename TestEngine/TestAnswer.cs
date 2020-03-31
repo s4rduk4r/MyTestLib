@@ -13,32 +13,21 @@ namespace MyTestLib
 {
 	public class TestAnswer
 	{
-		// Answer text
-		public string Text
-		{
-			get
-			{
-				return text;
-			}
-		}
+		/// <summary>
+		/// Answer text
+		/// </summary>
+		public string Text { get; private set; }
 
-		// Check if this answer is correct
-		public bool Correct
-		{
-			get
-			{
-				return correct;
-			}
-		}
+		/// <summary>
+		/// Check if this answer is correct
+		/// </summary>
+		public bool Correct { get; private set; }
 
 		public TestAnswer (string text, bool correct)
 		{
-			this.text = text;
-			this.correct = correct;
+			Text = text;
+			Correct = correct;
 		}
-
-		string text;
-		bool correct;
 	}
 }
 
