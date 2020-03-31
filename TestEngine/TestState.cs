@@ -16,6 +16,9 @@ namespace MyTestLib
 	using static MyTestLib.TestFileParser;
 	using Protector;
 	
+	/// <summary>
+	/// MyTest test state object. Stores all the test data.
+	/// </summary>
 	public class TestState
 	{
 		// Test modes
