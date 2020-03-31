@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MyTestLib
 {
-	public static class TestFileParser
+	internal static class TestFileParser
 	{
 		// Auxiliary methods and data
 		// Known tags
