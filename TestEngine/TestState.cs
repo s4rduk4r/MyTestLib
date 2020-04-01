@@ -13,7 +13,7 @@ using System.IO;
 
 namespace MyTestLib
 {
-	using static MyTestLib.TestFileParser;
+	using static TestFileParser;
 	using Protector;
 	
 	/// <summary>
