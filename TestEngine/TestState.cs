@@ -20,7 +20,7 @@ namespace MyTestLib
 	/// <summary>
 	/// MyTest test state object. Stores all the test data.
 	/// </summary>
-	public class TestState
+	public class TestState : ICloneable
 	{
 		// Test modes
 		/// <summary>
@@ -261,6 +261,18 @@ namespace MyTestLib
 				question.Shuffle (rng);
 			}
 			mutex.ReleaseMutex();
+		}
+
+		public object Clone()
+		{
+			var clone = new TestState();
+			clone.Name = Name;
+			clone.Author = Author;
+			clone.LastModified = LastModified;
+			clone.Mode = Mode;
+			clone.Time = Time;
+			clone.questions = new List<TestQuestion>(questions);
+			return clone;
 		}
 
 		// Infinite test time definition
