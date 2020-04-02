@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.IO;
 /*
  * Project: MyTest App
@@ -100,7 +101,7 @@ namespace MyTestLib
 		/// <summary>
 		/// Test results
 		/// </summary>
-		public TestResults Results = null;
+		public TestResults Results { get; private set; } = null;
 
 		public TestState()
 		{
@@ -234,6 +235,7 @@ namespace MyTestLib
 		// Shuffle questions so they don't repeat their order each time
 		public void Shuffle()
 		{
+			mutex.WaitOne();
 			var questionsOld = questions;
 			questions = new List<TestQuestion> ();
 			var count = questionsOld.Count;
@@ -249,6 +251,7 @@ namespace MyTestLib
 			{
 				question.Shuffle (rng);
 			}
+			mutex.ReleaseMutex();
 		}
 
 		// Infinite test time definition
@@ -257,6 +260,8 @@ namespace MyTestLib
 		List<TestQuestion> questions = new List<TestQuestion>();
 		// Shuffle randomizer
 		Random rng = new Random((int)DateTime.Now.Ticks);
+
+		private Mutex mutex = new Mutex();
 	}
 }
 

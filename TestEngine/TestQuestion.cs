@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 /*
  * Project: MyTest App
@@ -36,6 +37,7 @@ namespace MyTestLib
 			}
 			set
 			{
+				mutex.WaitOne();
 				if (value < 0)
 				{
 					this.value = 0;
@@ -44,6 +46,7 @@ namespace MyTestLib
 				{
 					this.value = value;
 				}
+				mutex.ReleaseMutex();
 			}
 		}
 
@@ -80,10 +83,12 @@ namespace MyTestLib
 			}
 			set
 			{
+				mutex.WaitOne();
 				if (value != null)
 				{
 					answers = (List<TestAnswer>)value;
 				}
+				mutex.ReleaseMutex();
 			}
 		}
 
@@ -112,6 +117,7 @@ namespace MyTestLib
 		/// <param name="rng"></param>
 		public void Shuffle(Random rng)
 		{
+			mutex.WaitOne();
 			var answersOld = answers;
 			answers = new List<TestAnswer> ();
 			var count = answersOld.Count;
@@ -122,6 +128,7 @@ namespace MyTestLib
 				answersOld.RemoveAt (i);
 			}
 			answersOld.Clear ();
+			mutex.ReleaseMutex();
 		}
 
 		public TestQuestion (string text)
@@ -132,6 +139,8 @@ namespace MyTestLib
 		string text = "";
 		float value = 0.0f;
 		List<TestAnswer> answers = new List<TestAnswer>();
+		
+		private Mutex mutex = new Mutex();
 	}
 }
 
