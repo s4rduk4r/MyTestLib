@@ -67,7 +67,7 @@ namespace MyTestLib
 		public int Time { get; private set; } = TimeInfinite;
 
 		/// <summary>
-		/// Test Questions. Each time you get them they are shuffled
+		/// Test Questions. Each time you get them their answers are shuffled
 		/// </summary>
 		public IList<TestQuestion> Questions
 		{
@@ -256,7 +256,7 @@ namespace MyTestLib
 
 		List<TestQuestion> questions = new List<TestQuestion>();
 		// Shuffle randomizer
-		Random rng = new Random();
+		Random rng = new Random((int)DateTime.Now.Ticks);
 	}
 }
 
