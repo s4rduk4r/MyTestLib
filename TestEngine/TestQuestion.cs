@@ -118,16 +118,24 @@ namespace MyTestLib
 		public void Shuffle(Random rng)
 		{
 			mutex.WaitOne();
-			var answersOld = answers;
-			answers = new List<TestAnswer> ();
-			var count = answersOld.Count;
-			while (answers.Count < count)
+			var newOrder = new List<(double Id, TestAnswer Answer)>();
+			for (int i = 0; i < answers.Count; i++)
 			{
-				var i = rng.Next (0, answersOld.Count);
-				answers.Add (answersOld[i]);
-				answersOld.RemoveAt (i);
+				newOrder.Add((rng.NextDouble(), answers[i]));
 			}
-			answersOld.Clear ();
+			newOrder.Sort(
+				(a, b) =>
+				{
+					if (a.Id > b.Id) return 1;
+					if (a.Id == b.Id) return 0;
+					if (a.Id < b.Id) return -1;
+					return 0;
+				}
+				);
+			for (int i = 0; i < answers.Count; i++)
+			{
+				answers[i] = newOrder[i].Answer;
+			}
 			mutex.ReleaseMutex();
 		}
 
