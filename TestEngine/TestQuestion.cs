@@ -13,7 +13,7 @@ using System.Threading;
  */
 namespace MyTestLib
 {
-	public class TestQuestion
+	public class TestQuestion : ICloneable
 	{
 		/// <summary>
 		/// Question text
@@ -137,6 +137,18 @@ namespace MyTestLib
 				answers[i] = newOrder[i].Answer;
 			}
 			mutex.ReleaseMutex();
+		}
+
+		public object Clone()
+		{
+			var clone = new TestQuestion(text);
+			clone.value = value;
+			clone.answers = new List<TestAnswer>();
+			foreach(var answer in answers)
+			{
+				clone.answers.Add(answer.Clone() as TestAnswer);
+			}
+			return clone;
 		}
 
 		public TestQuestion (string text)
