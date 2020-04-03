@@ -11,7 +11,7 @@
  */
 namespace MyTestLib
 {
-	public class TestAnswer
+	public class TestAnswer : ICloneable
 	{
 		/// <summary>
 		/// Answer text
@@ -27,6 +27,11 @@ namespace MyTestLib
 		{
 			Text = text;
 			Correct = correct;
+		}
+
+		public object Clone()
+		{
+			return new TestAnswer(Text, Correct);
 		}
 	}
 }
