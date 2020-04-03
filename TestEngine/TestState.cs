@@ -271,7 +271,11 @@ namespace MyTestLib
 			clone.LastModified = LastModified;
 			clone.Mode = Mode;
 			clone.Time = Time;
-			clone.questions = new List<TestQuestion>(questions);
+			clone.questions = new List<TestQuestion>();
+			foreach(var question in questions)
+			{
+				clone.questions.Add(question.Clone() as TestQuestion);
+			}
 			return clone;
 		}
 
