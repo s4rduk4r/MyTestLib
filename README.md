@@ -1,4 +1,4 @@
-# MyTestLib
+# MyTestLib ![.NET Core](https://github.com/s4rduk4r/MyTestLib/workflows/.NET%20Core/badge.svg?branch=master&event=push)
 **MyTestLib** is a MyTestEngine done as a library
 
 ## Test file structure
