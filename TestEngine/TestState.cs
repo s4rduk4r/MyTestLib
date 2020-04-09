@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Threading;
 using System.IO;
 /*
@@ -74,10 +75,12 @@ namespace MyTestLib
 		{
 			get
 			{
+				mutex.WaitOne();
 				foreach (var question in questions)
 				{
-					question.Shuffle (rng);
+					question.Shuffle(rng);
 				}
+				mutex.ReleaseMutex();
 				return questions;
 			}
 		}
