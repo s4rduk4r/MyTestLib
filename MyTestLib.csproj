@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/s4rduk4r/MyTestEngine</PackageProjectUrl>
     <RepositoryUrl>https://github.com/s4rduk4r/MyTestEngine</RepositoryUrl>
     <SignAssembly>false</SignAssembly>
